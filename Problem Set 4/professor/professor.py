@@ -53,6 +53,8 @@ def generate_integer(level):
             output = random.randint(100, 999)
             return output
 
+        case _:
+            return None
 
 
 if __name__ == "__main__":
