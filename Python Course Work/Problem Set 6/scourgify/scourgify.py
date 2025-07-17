@@ -10,6 +10,7 @@ def main():
         sys.exit(f"Could not read {csv_filenames[1]}")
 
 
+
 def format(csv_filenames):
     if len(csv_filenames) >= 4:
         sys.exit("Too many command-line arguments")
@@ -24,20 +25,17 @@ def format(csv_filenames):
         old_file, new_file = csv_filenames[1:]
         with open(old_file, "r") as old, open(new_file, "w") as new:
             reader = csv.DictReader(old)
-            writer = csv.DictWriter(new, fieldnames=["fist", "last", "house"] )
+            writer = csv.DictWriter(new, fieldnames=["first", "last", "house"] )
             writer.writeheader()
             for line in reader:
                 last, first = line["name"].split(",")
                 writer.writerow(
                     {
-                        "first" : first,
-                        "last" : last,
-                        "house" : line["house"]
+                        "first" : first.strip(),
+                        "last" : last.strip(),
+                        "house" : line["house"].strip()
                     }
                 )
-
-
-
 
 
 if __name__ == "__main__":
