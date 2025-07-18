@@ -1,3 +1,4 @@
+
 def main():
     while True:
         fraction = input("Fraction: ")
@@ -12,6 +13,7 @@ def main():
 
         else:
             print(gauge(percentage))
+            break
 
 
 def convert(fraction):
